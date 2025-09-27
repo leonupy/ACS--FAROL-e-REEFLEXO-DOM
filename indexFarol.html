@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AC do Farol</title>
+    <style>
+        body {
+            background-color: rgb(240, 204, 255);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .farol {
+            width: 100px;
+            background: gray;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 20px auto;
+        }
+        .luz {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin: 15px auto;
+            opacity: 0.3;
+        }
+        .acesa {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+   <div class="farol">
+        <div id="vermelho" class="luz" style="background: red;"></div>
+        <div id="amarelo" class="luz" style="background: yellow;"></div>
+        <div id="verde" class="luz" style="background: green;"></div>
+   </div>
+   <button onclick="mudarFarol()">Mudar</button>
+
+   <script>
+        let estado = 0; 
+
+        function mudarFarol() {
+            document.getElementById("vermelho").classList.remove("acesa");
+            document.getElementById("amarelo").classList.remove("acesa");
+            document.getElementById("verde").classList.remove("acesa");
+
+            if (estado === 0) {
+                document.getElementById("vermelho").classList.add("acesa");
+                estado = 1;
+            } else if (estado === 1) {
+                document.getElementById("amarelo").classList.add("acesa");
+                estado = 2;
+            } else {
+                document.getElementById("verde").classList.add("acesa");
+                estado = 0;
+            }
+        }
+   </script>
+</body>
+</html>
